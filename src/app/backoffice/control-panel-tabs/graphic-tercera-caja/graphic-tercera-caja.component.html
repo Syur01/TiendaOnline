@@ -1,0 +1,43 @@
+<div class="container mt-2">
+    <!-- Título de la satisfacción del cliente -->
+    <h2 class="text-center">Customer Satisfaction</h2>
+  
+    <!-- Barra de progreso con porcentaje -->
+    <div class="progress mt-4">
+      <div 
+        class="progress-bar"
+        [class.bg-success]="satisfaction >= 50"
+        [class.bg-warning]="satisfaction < 50 && satisfaction >= 30"
+        [class.bg-danger]="satisfaction < 30"
+        role="progressbar" 
+        [attr.aria-valuenow]="satisfaction" 
+        aria-valuemin="0" 
+        aria-valuemax="100"
+        [style.width]="satisfaction + '%'">
+        <span class="progress-text">{{ satisfaction}}%</span>
+      </div>
+    </div>
+  
+    <!-- Contenedor con la fila para "Trend" y "Previous" -->
+    <div class="row mt-4 justify-content-center">
+      <!-- Trend Section -->
+      <div class="col-6 col-md-4 text-center">
+        <h4>Trend</h4>
+        <div class="d-flex align-items-center justify-content-center">
+          <i class="bi bi-arrow-up-circle"
+             [class.text-success]="trend >= 0"
+             [class.text-danger]="trend < 0"
+             style="font-size: 32px;">
+          </i>
+          <span class="ms-2">{{ trend }}%</span>
+        </div>
+      </div>
+  
+      <!-- Previous Section -->
+      <div class="col-6 col-md-4 text-center">
+        <h4>Previous</h4>
+        <p>{{ previous }}%</p>
+      </div>
+    </div>
+  </div>
+  
